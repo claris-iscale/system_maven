@@ -6,10 +6,12 @@
       <class name="SystemMavenProject.AnotherSystem">
         <methods>
           <include name="LoadFees"/>
+          <include name="MnuProgramProductRef"/>
           <include name="MnuUserSystemUser"/>
           <include name="MnuSupportCardholder"/>
           <include name="Programs"/>
           <include name="MnuUserProgramUser"/>
+          <include name="MnuSettingsDeliveryMethod"/>
         </methods>
       </class> <!-- SystemMavenProject.AnotherSystem -->
     </classes>
