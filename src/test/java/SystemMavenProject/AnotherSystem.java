@@ -38,9 +38,9 @@ public class AnotherSystem {
 
 
 @Test (priority = Settings.LoginTest, alwaysRun = true)
-public void Login() {
+	public void Login() {
 	System.out.println("Now on Login Test");
-	Settings testSettings = new Settings();
+		Settings testSettings = new Settings();
 	
 	 if(testSettings.skipTest("LoginTest")){
 			
