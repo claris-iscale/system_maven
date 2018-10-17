@@ -1247,13 +1247,13 @@ public void UsersProgramUserTest() {
 		
 		driver.get("https://dev.system.an-other.co.uk/users?UserSearch[username]="+SysUsername+"&UserSearch[email]="+notifEmail+"&UserSearch[program_name]=&UserSearch[user_role]=program-admin&type=program");
 		
-		WebElement baseTable =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"w0\"]/table")));
-		WebElement SysUsernameValue = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(3)"));
-		WebElement SysEmailValue = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(4) > a"));
-		WebElement SysAccessValue = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(6)"));	
+		WebElement baseTable =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody")));
+		WebElement SysUsernameValue = baseTable.findElement(By.cssSelector("tbody tr td:nth-child(3)"));
+		WebElement SysEmailValue = baseTable.findElement(By.cssSelector("tbody tr td:nth-child(4)"));
+		WebElement SysAccessValue = baseTable.findElement(By.cssSelector("tbody tr td:nth-child(6)"));	
 		
 		
-		WebElement ParseView = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(7) > a:nth-child(1) > span"));
+		WebElement ParseView = baseTable.findElement(By.cssSelector(".glyphicon.glyphicon-eye-open"));
 		
 		Assert.assertTrue(SysUsernameValue.getText().contains(SysUsername));
 		Assert.assertTrue(SysEmailValue.getText().contains(notifEmail));
@@ -1262,8 +1262,8 @@ public void UsersProgramUserTest() {
 		
 		//View Record
 		ParseView.click();		
-		WebElement ParseViewPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w0 > tbody > tr:nth-child(2) > th")));
-		WebElement ParseViewValue = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w0 > tbody > tr:nth-child(2) > td")));
+		WebElement ParseViewPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody tr:nth-child(2) th")));
+		WebElement ParseViewValue = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody tr:nth-child(2) td")));
 		
 		if(ParseViewPage.getText() == "Username") {
 			Assert.assertTrue(ParseViewValue.getText().contains(SysUsername));			
@@ -1272,11 +1272,11 @@ public void UsersProgramUserTest() {
 		
 		//Edit Record
 		driver.get("https://dev.system.an-other.co.uk/users?UserSearch[username]="+SysUsername+"&UserSearch[email]="+notifEmail+"&UserSearch[program_name]=&UserSearch[user_role]=program-admin&type=program");
-		WebElement baseTableEdit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"w0\"]/table")));
-		WebElement ParseEdit = baseTableEdit.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(7) > a:nth-child(2) > span"));
+		WebElement baseTableEdit = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody")));
+		WebElement ParseEdit = baseTableEdit.findElement(By.cssSelector(".glyphicon.glyphicon-pencil"));
 		
 		ParseEdit.click();
-		WebElement ParsePage =  driver.findElement(By.cssSelector("body > div.wrap > div.container-fluid > div > div > div > div.page-header > h1"));
+		WebElement ParsePage =  driver.findElement(By.cssSelector("h1"));
 		
 		Assert.assertTrue(ParsePage.getText().contains("Update Program User: "+SysUsername));
 		
@@ -1284,7 +1284,7 @@ public void UsersProgramUserTest() {
 		ParseSysUsernameEdit.clear();
 		ParseSysUsernameEdit.sendKeys(SysUsername+"_edited");		
 		
-		WebElement ParseUpdate = driver.findElement(By.xpath("//button[contains(text(),'Update')]"));
+		WebElement ParseUpdate = driver.findElement(By.cssSelector("button.btn.btn-primary:nth-child(1)"));
 		ParseUpdate.click();
 		
 		
@@ -1293,29 +1293,33 @@ public void UsersProgramUserTest() {
 		
 		driver.get("https://dev.system.an-other.co.uk/users?UserSearch[username]="+SysUsername+"&UserSearch[email]="+notifEmail+"&UserSearch[program_name]=&UserSearch[user_role]=program-admin&type=program");
 		
-		wait = new WebDriverWait(driver, 10);
-		WebElement baseTableDelete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"w0\"]/table")));
-		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("#w0 > table > tbody > tr:nth-child(1) > td:nth-child(7) > a:nth-child(3) > span"));
+		wait = new WebDriverWait(driver, 20);
+		WebElement baseTableDelete = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody")));
+		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector(".glyphicon.glyphicon-trash"));
 		ParseDelete.click();
-		driver.switchTo().alert().accept();
-		
-		driver.navigate().to("https://dev.system.an-other.co.uk/users?type=system");
-		driver.navigate().back();
-		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		WebElement okDeleteButton = driver.findElement(By.cssSelector(".btn.btn-warning"));
+		okDeleteButton.click();
+		String userPageTitle = driver.getTitle();
+		assertTrue(userPageTitle.contains("Users"));
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping UsersSystemUser case. ");
 	}
 }
 
 @Test (priority = Settings.IPWhitelistTest, alwaysRun = true)
-public void MnuIPWhitelist() {
-	System.out.println("Now on IPWhitelistTest");
-	Settings testSettings = new Settings();
+public void IPWhitelistTest() {
 	if(testSettings.skipTest("IPWhitelistTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String IPWhitelistIP = "000.0.0.1";
 		String WhitelistDesc = "QA Automated Whitelisting "; 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on IPWhitelistTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 5);
 		
 		WebElement ParseWhitelistMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(5) > a")));		
@@ -1421,8 +1425,7 @@ public void MnuIPWhitelist() {
 			 ParseWhitelist.sendKeys(IPWhitelistIP);
 			 ParseWhitelistDesc.sendKeys(WhitelistDesc);
 			 ParseCreate.click();
-		 
-			driver.navigate().back();
+			 driver.quit();
 	 		}		
 		
 	}else{
@@ -1433,13 +1436,12 @@ public void MnuIPWhitelist() {
 
 @Test (priority = Settings.CardholderDetailsTest, alwaysRun = true)
 public void CardholderDetailsTest() {
-	System.out.println("Now on CardholderDetailsTest");
-	Settings testSettings = new Settings();
 	if(testSettings.skipTest("CardholderDetailsTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String CardholderEmail = "G00799@100002.com";
 		String WhitelistDesc = "QA Automated Whitelisting "; 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on CardholderDetailsTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 5);
 		
 		WebElement ParseSuportMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(6) > a")));		
@@ -1477,27 +1479,31 @@ public void CardholderDetailsTest() {
 			dropdownCountry.selectByValue("GB");
 		}
 		
-		WebElement ParseUpdateBtn = driver.findElement(By.xpath("//*[@id=\"Cardholder\"]/div[3]/button[2]"));
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		WebElement ParseUpdateBtn = driver.findElement(By.cssSelector("button.btn.btn-primary"));
 		ParseUpdateBtn.click();
 		
 		
 		WebElement ParseMessageAlert = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div[1]/div")));
 		Assert.assertTrue(ParseMessageAlert.getText().contains("has been saved successfully"));	
-		
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping CardholderDetailsTest case. ");
 	}			
 }
 
 @Test (priority = Settings.SettingsPrefundTest, alwaysRun = true)
-public void MnuSettingsPrefund() {
-	System.out.println("Now on SettingsPrefundTest");
-	Settings testSettings = new Settings();
+public void SettingsPrefundTest() {
 	if(testSettings.skipTest("SettingsPrefundTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String PrefundLabel = "QA-Prefund";
 		String PrefundDetails = "IBAN	\r GB29 NWBK 6016 1331 9268 19 ISO Country Code	\r GB (United Kingdom) IBAN Check Digits	29 BBAN	\n NWBK 6016 1331 9268 19 Bank Identifier	\n NWBK Branch Identifier	\n 601613 Account Number	31926819 -E"; 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on SettingsPrefundTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 5); 
 		
 		WebElement ParseSettingsMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(7) > a")));		
@@ -1528,22 +1534,20 @@ public void MnuSettingsPrefund() {
 		WebElement ParseAlertMessage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div.wrap > div.container-fluid > div > div > div > div.card-list.col-xs-12 > div")));
 		ParseAlertMessage.getText();
 		Assert.assertTrue(ParseAlertMessage.getText().contains("Prefund accound details has been saved!"));
-		
-		driver.navigate().back();
-	}else{
+		driver.quit();
+		}else{
 		 throw new SkipException("Skipping SettingsPrefundTest case. ");
 	}
 }
 
 @Test (priority = Settings.SettingsDeliveryMethodTest, alwaysRun = true)
-public void MnuSettingsDeliveryMethod() {
-	System.out.println("Now on SettingsDeliveryMethodTest");
-	Settings testSettings = new Settings();
+public void SettingsDeliveryMethodTest() {
 	if(testSettings.skipTest("SettingsDeliveryMethodTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String DeliveryMethod = "QA-D01";
 		String DeliveryName = "QA Automated Delivery Name " + DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(date); 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on SettingsDeliveryMethodTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 20); 
 		
 		WebElement ParseSettingsMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(7) > a")));		
@@ -1653,6 +1657,7 @@ public void MnuSettingsDeliveryMethod() {
 		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(5) > a:nth-child(3) > span"));
 		ParseDelete.click();
 		driver.switchTo().alert().accept();
+		driver.quit();
 		
 	}else{
 		 throw new SkipException("Skipping SettingsDeliveryMethodTest case. ");
@@ -1660,14 +1665,13 @@ public void MnuSettingsDeliveryMethod() {
 }
 
 @Test (priority = Settings.LogsCardholders, alwaysRun = true)
-public void MnuLogsCardholders() {
-	System.out.println("Now on LogsCardholders");
-	Settings testSettings = new Settings();
+public void LogsCardholders() {
 	if(testSettings.skipTest("LogsCardholders")){ 
+		WebDriver driver = new ChromeDriver();
 		String DeliveryMethod = "QA-D01";
 		String DeliveryName = "QA Automated Delivery Name " + DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(date); 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on LogsCardholders");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 20); 
 		
 		WebElement ParseLogsMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(8) > a")));		
@@ -1703,6 +1707,7 @@ public void MnuLogsCardholders() {
 	    	WebElement ParseRow = baseTable.findElement(By.xpath("//*[@id=\"w0-container\"]/table/tbody/tr/td/div"));
 			Assert.assertEquals("No results found.", ParseRow.getText());	    	
 		}	 
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping LogsCardholders case. ");
 	}
