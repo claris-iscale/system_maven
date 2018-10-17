@@ -1,7 +1,6 @@
 package SystemMavenProject;
 
-import SystemMavenProject.Settings;
-import SystemMavenProject.CRUDTestCase;
+import static org.junit.Assert.assertTrue;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -25,10 +25,20 @@ import org.testng.annotations.Test;
 import junit.framework.Assert;
 
 public class AnotherSystem {
+		//** FOR FIREFOX BROWSER **//
+		//driver = new firefoxDriver();
+		//********************************** //	 
+		Settings testSettings = new Settings();
+		
+		@BeforeClass
+		public void setupDriver() {
+			System.setProperty("webdriver.chrome.driver","src\\chromedriver.exe");
+		}
+	
 	   public  WebDriver driver;
 	   public  WebDriverWait wait;
-	   public static String sysUser = "iannis@iscale-solutions.com";
-	   public static String sysPass = "@Access18!";
+	   public static String username = "iannis@iscale-solutions.com";
+	   public static String password = "@Access18!";
 	   public static String cardNumber = "546048******6444";
 	   public static String notifEmail = "lea@iscalesolutions.com";
 	   public static String notifPass = "Testing123!!";
@@ -38,61 +48,44 @@ public class AnotherSystem {
 
 
 @Test (priority = Settings.LoginTest, alwaysRun = true)
-	public void Login() {
-	System.out.println("Now on Login Test");
-		Settings testSettings = new Settings();
-	
+	public void LoginTest() {
 	 if(testSettings.skipTest("LoginTest")){
-			
-		//** FOR FIREFOX BROWSER **//
-		   //driver = new firefoxDriver();
-		//********************************** //	 
-			
-		//** FOR CHROME BROWSER ** //
-		   System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
-		   driver = new ChromeDriver();
-		//**********************************//	   
+		 System.out.println("Now on Login Test");
+		   WebDriver driver = new ChromeDriver();
 	   
 		   wait = new WebDriverWait(driver, 20);
 		   	   
 		   driver.manage().window().maximize();
 		   driver.get("https://dev.system.an-other.co.uk/");
-
-			   
 		   WebElement Username = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
-		   Username.sendKeys(sysUser);
+		   Username.sendKeys(username);
 		   WebElement Password = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
-		   Password.sendKeys(sysPass);
-		   
+		   Password.sendKeys(password);
 		   WebElement SysIn = driver.findElement(By.xpath("//button[contains(text(),'Sign in')]"));
 		   SysIn.click();
-			   
-		  
-		  WebElement dashboard = new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"p0\"]")));
-		  Assert.assertTrue(dashboard.isDisplayed());
+		   WebElement dashboard = new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"p0\"]")));
+		   Assert.assertTrue(dashboard.isDisplayed());
+		   driver.quit();
 	 }else{
 		 throw new SkipException("Skipping LoginTest case. ");
 	}
 				
   }
 @Test (priority = Settings.FinanceTest, alwaysRun = true)
-public void Finance() {
-	System.out.println("Now on Finance Test");
-	Settings testSettings = new Settings();
+public void FinanceTest() {
+	
 	if(testSettings.skipTest("FinanceTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String clearingReference = "7-9-3038481";
-
+		System.out.println("Now on Finance Test");
+		   log_in_system_user(driver, username, password);
 		//BALANCES	
 			WebElement Finance = driver.findElement(By.cssSelector("a[class='dropdown-toggle']"));
 			Finance.click();
 			
 			WebElement Balances = driver.findElement(By.xpath("//a[contains(text(),'Ledger Balances')]"));
 			Balances.click();
-			
-
-			
 			// Check Pagination//
-			
 			
 			//Export//
 			Actions  action = new Actions(driver);
@@ -292,21 +285,101 @@ public void Finance() {
 				
 			WebElement Adjustment = driver.findElement(By.xpath("//a[contains(text(),'Ledger Adjustments')]"));
 			Adjustment.click();
-				
-				//Continue for validation
-				
+			driver.quit();
 	}else{
 		 throw new SkipException("Skipping FinanceTest case. ");
 	}
-	
-		
   }
-@Test (priority = Settings.ProgramsTest, alwaysRun = true)
-public void Programs() {
-	System.out.println("Now on Program Test");
-	Settings testSettings = new Settings();
-	if(testSettings.skipTest("ProgramsTest")){ 
+
+@Test (priority = Settings.LoadFeesTest, alwaysRun = true)
+public void LoadFeesTest() {
+	if(testSettings.skipTest("LoadFeesTest")){ 
+		WebDriver driver = new ChromeDriver();
+		log_in_system_user(driver, username, password);
+		String minAmount = "1";
+		String maxAmount = "10";
+		String loadFee = "2";
+		String loadPercent = "2";
+		System.out.println("Now on LoadFeesTest");
 		
+		WebElement ProgramLoadFees = driver.findElement(By.xpath("//*[@id=\"w4\"]/li[3]/a"));
+		ProgramLoadFees.click();
+		
+		
+		WebElement EditLoadFees = driver.findElement(By.xpath("//*[@id=\"w6\"]/li[2]/a"));
+		EditLoadFees.click();
+		
+		// program in the list
+		WebElement EditFeeTable = driver.findElement(By.xpath("//*[@id=\"w0\"]/table/tbody/tr[1]/td[2]/a"));
+		EditFeeTable.click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		List<WebElement> minimumLoadAmount = driver.findElements(By.cssSelector("tbody tr>td:nth-child(2)"));
+		
+		WebElement addPreset = driver.findElement(By.cssSelector("a.btn.btn-success"));
+		addPreset.click();
+		
+		WebElement MinAmount = driver.findElement(By.xpath("//input[@id='fee-min_load_value']"));
+		MinAmount.sendKeys(minAmount);
+				
+		WebElement MaxAmount = driver.findElement(By.xpath("//input[@id='fee-max_load_value']"));
+		MaxAmount.sendKeys(maxAmount);
+		
+		WebElement LoadFee = driver.findElement(By.xpath("//input[@id='fee-amount']"));
+		LoadFee.sendKeys(loadFee);
+		
+		WebElement LoadPercentage = driver.findElement(By.xpath("//input[@id='fee-load_fee_percentage']"));
+		LoadPercentage.sendKeys(loadPercent);
+		
+		//WebElement Create = driver.findElement(By.xpath("//button[contains(text(),'Create')]"));
+		//Create.click();		
+		
+	/*	driver.navigate().back();
+		
+		WebElement View = driver.findElement(By.xpath("//a[@title='View']"));
+		View.click();
+		
+		WebElement ViewTable = driver.findElement(By.xpath("//table[@id='w0']"));
+		Assert.assertTrue(ViewTable.isDisplayed());
+		
+		driver.navigate().back();
+		
+		WebElement Update = driver.findElement(By.xpath("//a[@title='Update']"));
+		Update.click();
+		
+		WebElement MinAmountUpdate = driver.findElement(By.xpath("//input[@id='fee-min_load_value']"));
+		MinAmountUpdate.sendKeys("2");
+		
+		WebElement MaxAmountUpdate = driver.findElement(By.xpath("//input[@id='fee-max_load_value']"));
+		MaxAmountUpdate.sendKeys("26");
+		
+		WebElement LoadFeeUpdate = driver.findElement(By.xpath("//input[@id='fee-amount']"));
+		LoadFeeUpdate.sendKeys("2");
+		
+		WebElement LoadPercentageUpdate = driver.findElement(By.xpath("//input[@id='fee-load_fee_percentage']"));
+		LoadPercentageUpdate.sendKeys("2");
+		
+		WebElement UpdateButton = driver.findElement(By.xpath("//button[contains(text(),'Update']"));
+		UpdateButton.click();
+		*/
+		//Validations
+		driver.quit();
+	}else{
+		 throw new SkipException("Skipping LoadFeesTest case. ");
+	}
+	
+	
+}
+
+@Test (priority = Settings.ProgramsTest, alwaysRun = true)
+public void ProgramsTest() {
+	if(testSettings.skipTest("ProgramsTest")){ 
+		WebDriver driver = new ChromeDriver();
+		log_in_system_user(driver, username, password);
 		String pname = "QATestProgram";
 		String cname = "iScale Solutions";
 		String add1 = " 7th flr. salaustino Bldg";
@@ -316,14 +389,14 @@ public void Programs() {
 		String zip = "1630";
 		String id = "100002";
 		String program = "Global Sourcing Solutions";
-		
+		System.out.println("Now on Program Test");
 				
 	//EDIT PROGRAMS	
 		
-		WebElement aProgram = driver.findElement(By.xpath("//*[@id=\"w3\"]/li[3]/a"));
+		WebElement aProgram = driver.findElement(By.xpath("//*[@id=\"w4\"]/li[3]/a"));
 		aProgram.click();
 		
-		WebElement EditProgram = driver.findElement(By.xpath("//*[@id=\"w5\"]/li[1]/a"));
+		WebElement EditProgram = driver.findElement(By.xpath("//*[@id=\"w6\"]/li[1]/a"));
 		EditProgram.click();
 
 		WebElement pTable = driver.findElement(By.xpath("//table[@class='table table-striped table-bordered']"));
@@ -402,19 +475,9 @@ public void Programs() {
 		WebElement View = driver.findElement(By.xpath("//a[@title='View']"));
 		View.click();
 		
-		WebElement ViewTable = driver.findElement(By.xpath("//table[@id='w0']"));
-		Assert.assertTrue(ViewTable.isDisplayed());
-		
-		driver.navigate().back();
-		
-		WebElement ProgramUpdate = driver.findElement(By.xpath("//a[@title='Update']"));
-		ProgramUpdate.click();
-		
-		//WebElement UpdateForm = driver.findElement(By.xpath("//form[@id='w0']"));
-		//Assert.assertTrue(UpdateForm.isDisplayed());
-		
-		driver.navigate().back();
-		
+		WebElement programsTable = driver.findElement(By.cssSelector(".table.table-striped.table-bordered"));
+		Assert.assertTrue(programsTable.isDisplayed());
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping ProgramsTest case. ");
 	}
@@ -423,26 +486,22 @@ public void Programs() {
 }
 
 @Test (priority = Settings.ProgramProductsTest, alwaysRun = true)
-public void MnuProgramProducts() {
-	System.out.println("Now on ProgramProductsTest Test");
-	Settings testSettings = new Settings();
+public void ProgramProductsTest() {
 	if(testSettings.skipTest("ProgramProductsTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String ProductCode = "QAPROD-001";
 		String ProductName = "QA Automated Product "; 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
-		
-		wait = new WebDriverWait(driver, 5);
+		System.out.println("Now on ProgramProductsTest Test");
+		log_in_system_user(driver, username, password);
 		
 		WebElement ParseProgramMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(3) > a")));		
 		ParseProgramMenu.click();
 		
-		
-		WebElement ProgramProducts = driver.findElement(By.cssSelector("#w6 > li:nth-child(4) > a"));
-		ProgramProducts.click();
+		WebElement editProducts = driver.findElement(By.linkText("Edit Products"));
+		editProducts.click();
 		
 		//create Record
-		WebElement CreateProduct = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/p/a"));
+		WebElement CreateProduct = driver.findElement(By.cssSelector("a.btn.btn-success"));
 		CreateProduct.click();
 		
 		
@@ -531,8 +590,7 @@ public void MnuProgramProducts() {
 		ParseProductNameEdit.sendKeys(ProductName+"-Edited");
 		
 		ParseUpdate.click();
-		driver.navigate().back();
-		
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping ProgramProductsTest case. ");
 	}
@@ -542,19 +600,16 @@ public void MnuProgramProducts() {
 
 
 @Test (priority = Settings.ProgramProductRefTest, alwaysRun = true)
-public void MnuProgramProductRef() {
-	System.out.println("Now on ProgramProductRefTest Test");
-	Settings testSettings = new Settings();
+public void ProgramProductRefTest() {
+	
 	if(testSettings.skipTest("ProgramProductRefTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String ProductRef = "QAPRODREF "+ dateFormat.format(date);
 		String ProductRefDesc = "QA Automated Product Ref " + DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(date); 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
-		wait = new WebDriverWait(driver, 20);
-		
+		System.out.println("Now on ProgramProductRefTest Test");
+		log_in_system_user(driver, username, password);
 		WebElement ParseProgramMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(3) > a")));		
 		ParseProgramMenu.click();
-		
 		
 		WebElement ProgramProductRef = driver.findElement(By.cssSelector("#w6 > li:nth-child(5) > a"));
 		ProgramProductRef.click();
@@ -654,7 +709,7 @@ public void MnuProgramProductRef() {
 		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(4) > a:nth-child(3) > span"));
 		ParseDelete.click();
 		driver.switchTo().alert().accept();
-		
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping ProgramProductRefTest case. ");
 	}
@@ -662,22 +717,18 @@ public void MnuProgramProductRef() {
 
 @Test (priority = Settings.ProgramCarrierTypeTest, alwaysRun = true)
 public void MnuProgramCarrierType() {
-	System.out.println("Now on ProgramCarrierTypeTest");
-	Settings testSettings = new Settings();
 	if(testSettings.skipTest("ProgramCarrierTypeTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String CarrierType = "QACT - "+ dateFormat.format(date);
 		String CarrierDesc = "QA Automated Carrier Type " + DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(date); 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on ProgramCarrierTypeTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 20);
 		
 		WebElement ParseProgramMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(3) > a")));		
 		ParseProgramMenu.click();
-		
-		
 		WebElement ProgramCarrierType = driver.findElement(By.cssSelector("#w6 > li:nth-child(6) > a"));
 		ProgramCarrierType.click();
-		
 		//create Record
 		WebElement CreateCarrierType = driver.findElement(By.cssSelector("body > div.wrap > div.container-fluid > div > div > div > p > a"));
 		CreateCarrierType.click();
@@ -773,7 +824,7 @@ public void MnuProgramCarrierType() {
 		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(4) > a:nth-child(3) > span"));
 		ParseDelete.click();
 		driver.switchTo().alert().accept();
-		
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping ProgramCarrierTypeTest case. ");
 	}
@@ -781,15 +832,14 @@ public void MnuProgramCarrierType() {
 
 @Test (priority = Settings.ProgramDeliveryFeeTest, alwaysRun = true)
 public void MnuProgramDeliveryFee() {
-	System.out.println("Now on ProgramDeliveryFeeTest");
-	Settings testSettings = new Settings();
 	if(testSettings.skipTest("ProgramDeliveryFeeTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String ProgramName = "Qa Test Plastic/Virtual Switching 001";
 		String DF_UKFee = "2";
 		String DF_EURFee = "2";
 		String DF_OTFee = "3";
-				
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on ProgramDeliveryFeeTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 5);
 		
 		WebElement ParseProgramMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(3) > a")));		
@@ -907,8 +957,7 @@ public void MnuProgramDeliveryFee() {
 				
 			ParseUpdate.click();
 		}
-		driver.navigate().back();
-				
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping ProgramDeliveryFeeTest case. ");
 	}
@@ -917,13 +966,12 @@ public void MnuProgramDeliveryFee() {
 
 @Test (priority = Settings.ProgramTariffTest, alwaysRun = true)
 public void MnuProgramTariff() {
-	System.out.println("Now on ProgramTariffTest");
-	Settings testSettings = new Settings();
 	if(testSettings.skipTest("ProgramTariffTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String TariffCode = "QATARIFF - "+ dateFormat.format(date);
 		String TariffName = "QA Automated Tariff " + DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(date); 
-		
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on ProgramTariffTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 20); 
 		
 		WebElement ParseProgramMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(3) > a")));		
@@ -1030,20 +1078,19 @@ public void MnuProgramTariff() {
 		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(4) > a:nth-child(3) > span"));
 		ParseDelete.click();
 		driver.switchTo().alert().accept();
-		
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping ProgramTariffTest case. ");
 	}
 }
 
-@Test (priority = Settings.UsersSystemUser, alwaysRun = true)
-public void MnuUserSystemUser() {
-	System.out.println("Now on UsersSystemUser");
-	Settings testSettings = new Settings();
-	if(testSettings.skipTest("UsersSystemUser")){ 
+@Test (priority = Settings.UsersSystemUserTest, alwaysRun = true)
+public void UsersSystemUserTest() {
+	if(testSettings.skipTest("UsersSystemUserTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String SysUsername = "qa_auto_user";		
-		   
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on UsersSystemUser");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 5); 
 		
 		WebElement ParseUsersMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(4) > a")));		
@@ -1054,8 +1101,8 @@ public void MnuUserSystemUser() {
 		UserSystem.click();
 		
 		//create Record
-		WebElement CreateTariff = driver.findElement(By.cssSelector("body > div.wrap > div.container-fluid > div > p > a"));
-		CreateTariff.click();
+		WebElement addSystemUserbutton = driver.findElement(By.cssSelector("a.btn.btn-success"));
+		addSystemUserbutton.click();
 		
 		
 		wait = new WebDriverWait(driver, 10); 
@@ -1084,13 +1131,13 @@ public void MnuUserSystemUser() {
 		
 		driver.get("https://dev.system.an-other.co.uk/users?UserSearch[username]="+SysUsername+"&UserSearch[email]="+notifEmail+"&UserSearch[program_name]=&UserSearch[user_role]=system-admin&type=system");
 		
-		WebElement baseTable =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"w0\"]/table")));
-		WebElement SysUsernameValue = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(3)"));
-		WebElement SysEmailValue = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(4) > a"));
-		WebElement SysAccessValue = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(6)"));	
+		WebElement baseTable =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody")));
+		WebElement SysUsernameValue = baseTable.findElement(By.cssSelector("tbody > tr td:nth-child(3)"));
+		WebElement SysEmailValue = baseTable.findElement(By.cssSelector("tbody > tr td:nth-child(4)"));
+		WebElement SysAccessValue = baseTable.findElement(By.cssSelector("tbody > tr td:nth-child(6)"));	
 		
 		
-		WebElement ParseView = baseTable.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(7) > a:nth-child(1) > span"));
+		WebElement ParseView = baseTable.findElement(By.cssSelector("tbody > tr td:nth-child(7) span"));
 		
 		Assert.assertTrue(SysUsernameValue.getText().contains(SysUsername));
 		Assert.assertTrue(SysEmailValue.getText().contains(notifEmail));
@@ -1099,21 +1146,21 @@ public void MnuUserSystemUser() {
 		
 		//View Record
 		ParseView.click();		
-		WebElement ParseViewPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w0 > tbody > tr:nth-child(2) > th")));
-		WebElement ParseViewValue = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w0 > tbody > tr:nth-child(2) > td")));
+		WebElement usernameField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w0 > tbody > tr:nth-child(2) > th")));
+		WebElement usernameValue = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w0 > tbody > tr:nth-child(2) > td")));
 		
-		if(ParseViewPage.getText() == "Username") {
-			Assert.assertTrue(ParseViewValue.getText().contains(SysUsername));			
+		if(usernameField.getText() == "Username") {
+			Assert.assertTrue(usernameValue.getText().contains(SysUsername));			
 		}
 		
 		
 		//Edit Record
 		driver.get("https://dev.system.an-other.co.uk/users?UserSearch[username]="+SysUsername+"&UserSearch[email]="+notifEmail+"&UserSearch[program_name]=&UserSearch[user_role]=system-admin&type=system");
-		WebElement baseTableEdit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"w0\"]/table")));
-		WebElement ParseEdit = baseTableEdit.findElement(By.cssSelector("#w0 > table > tbody > tr > td:nth-child(7) > a:nth-child(2) > span"));
+		WebElement baseTableEdit = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody")));
+		WebElement ParseEdit = baseTableEdit.findElement(By.cssSelector("span.glyphicon.glyphicon-pencil"));
 		
 		ParseEdit.click();
-		WebElement ParsePage =  driver.findElement(By.cssSelector("body > div.wrap > div.container-fluid > div > div > div > div.page-header > h1"));
+		WebElement ParsePage =  driver.findElement(By.cssSelector("h1"));
 		
 		Assert.assertTrue(ParsePage.getText().contains("Update System User: "+SysUsername));
 		
@@ -1121,7 +1168,7 @@ public void MnuUserSystemUser() {
 		ParseSysUsernameEdit.clear();
 		ParseSysUsernameEdit.sendKeys(SysUsername+"_edited");		
 		
-		WebElement ParseUpdate = driver.findElement(By.xpath("//button[contains(text(),'Update')]"));
+		WebElement ParseUpdate = driver.findElement(By.cssSelector("button.btn.btn-primary:nth-child(1)"));
 		ParseUpdate.click();
 		
 		
@@ -1130,44 +1177,46 @@ public void MnuUserSystemUser() {
 		
 		driver.get("https://dev.system.an-other.co.uk/users?UserSearch[username]="+SysUsername+"&UserSearch[email]="+notifEmail+"&UserSearch[program_name]=&UserSearch[user_role]=system-admin&type=system");
 		
-		wait = new WebDriverWait(driver, 10);
-		WebElement baseTableDelete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"w0\"]/table")));
-		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("#w0 > table > tbody > tr:nth-child(1) > td:nth-child(7) > a:nth-child(3) > span"));
+		wait = new WebDriverWait(driver, 20);
+		WebElement baseTableDelete = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody")));
+		WebElement ParseDelete = baseTableDelete.findElement(By.cssSelector("span.glyphicon.glyphicon-trash"));
 		ParseDelete.click();
-		driver.switchTo().alert().accept();
-		
-		driver.navigate().to("https://dev.system.an-other.co.uk/users?type=system");
-		driver.navigate().back();
-		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		WebElement okDeleteButton = driver.findElement(By.cssSelector("button.btn.btn-warning"));
+		okDeleteButton.click();
+		String userPageTitle = driver.getTitle();
+		assertTrue(userPageTitle.contains("Users"));
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping UsersSystemUser case. ");
 	}
 }
 
-@Test (priority = Settings.UsersProgramUser, alwaysRun = true)
-public void MnuUserProgramUser() {
-	System.out.println("Now on UsersProgramUser");
-	Settings testSettings = new Settings();
-	if(testSettings.skipTest("UsersProgramUser")){ 
+@Test (priority = Settings.UsersProgramUserTest, alwaysRun = true)
+public void UsersProgramUserTest() {
+	if(testSettings.skipTest("UsersProgramUserTest")){ 
+		WebDriver driver = new ChromeDriver();
 		String SysUsername = "qa_auto_user";		
-		   
-		driver.get("https://dev.system.an-other.co.uk/");
+		System.out.println("Now on UsersProgramUserTest");
+		log_in_system_user(driver, username, password);
 		wait = new WebDriverWait(driver, 10); 
 		
 		WebElement ParseUsersMenu = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#w4 > li:nth-child(4) > a")));		
 		ParseUsersMenu.click();
 		
-		
 		WebElement UserSystem = driver.findElement(By.cssSelector("#w7 > li:nth-child(1) > a"));
 		UserSystem.click();
 		
 		//create Record
-		WebElement CreateProgramUser = driver.findElement(By.cssSelector("body > div.wrap > div.container-fluid > div > p > a"));
+		WebElement CreateProgramUser = driver.findElement(By.cssSelector("a.btn.btn-success"));
 		CreateProgramUser.click();
 		
-		
 		wait = new WebDriverWait(driver, 10); 
-		WebElement ParseCreateProgramUserPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div.wrap > div.container-fluid > div > div > div > h1")));
+		WebElement ParseCreateProgramUserPage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("h1")));
 		
 		Assert.assertTrue(ParseCreateProgramUserPage.getText().contains("Create Program User"));
 		
@@ -1383,7 +1432,7 @@ public void MnuIPWhitelist() {
 
 
 @Test (priority = Settings.CardholderDetailsTest, alwaysRun = true)
-public void MnuSupportCardholder() {
+public void CardholderDetailsTest() {
 	System.out.println("Now on CardholderDetailsTest");
 	Settings testSettings = new Settings();
 	if(testSettings.skipTest("CardholderDetailsTest")){ 
@@ -1659,84 +1708,20 @@ public void MnuLogsCardholders() {
 	}
 }
 
-@Test (priority = Settings.LoadFeesTest, alwaysRun = true)
-public void LoadFees() {
-	System.out.println("Now on LoadFeesTest");
-	Settings testSettings = new Settings();
-	if(testSettings.skipTest("LoadFeesTest")){ 
-		String minAmount = "1";
-		String maxAmount = "10";
-		String loadFee = "2";
-		String loadPercent = "2";
-		
-		
-		WebElement ProgramLoadFees = driver.findElement(By.xpath("//*[@id=\"w1\"]/li[3]/a"));
-		ProgramLoadFees.click();
-		
-		
-		WebElement EditLoadFees = driver.findElement(By.xpath("//*[@id=\"w3\"]/li[2]"));
-		EditLoadFees.click();
-		
-		WebElement EditFeeTable = driver.findElement(By.xpath("//*[@id=\"w0\"]/table/tbody/tr[1]/td[2]/a"));
-		EditFeeTable.click();
-		
-		WebElement addPreset = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/p/a"));
-		addPreset.click();
-		
-		WebElement MinAmount = driver.findElement(By.xpath("//input[@id='fee-min_load_value']"));
-		MinAmount.sendKeys(minAmount);
-				
-		WebElement MaxAmount = driver.findElement(By.xpath("//input[@id='fee-max_load_value']"));
-		MaxAmount.sendKeys(maxAmount);
-		
-		WebElement LoadFee = driver.findElement(By.xpath("//input[@id='fee-amount']"));
-		LoadFee.sendKeys(loadFee);
-		
-		WebElement LoadPercentage = driver.findElement(By.xpath("//input[@id='fee-load_fee_percentage']"));
-		LoadPercentage.sendKeys(loadPercent);
-		
-		//WebElement Create = driver.findElement(By.xpath("//button[contains(text(),'Create')]"));
-		//Create.click();		
-		
-	/*	driver.navigate().back();
-		
-		WebElement View = driver.findElement(By.xpath("//a[@title='View']"));
-		View.click();
-		
-		WebElement ViewTable = driver.findElement(By.xpath("//table[@id='w0']"));
-		Assert.assertTrue(ViewTable.isDisplayed());
-		
-		driver.navigate().back();
-		
-		WebElement Update = driver.findElement(By.xpath("//a[@title='Update']"));
-		Update.click();
-		
-		WebElement MinAmountUpdate = driver.findElement(By.xpath("//input[@id='fee-min_load_value']"));
-		MinAmountUpdate.sendKeys("2");
-		
-		WebElement MaxAmountUpdate = driver.findElement(By.xpath("//input[@id='fee-max_load_value']"));
-		MaxAmountUpdate.sendKeys("26");
-		
-		WebElement LoadFeeUpdate = driver.findElement(By.xpath("//input[@id='fee-amount']"));
-		LoadFeeUpdate.sendKeys("2");
-		
-		WebElement LoadPercentageUpdate = driver.findElement(By.xpath("//input[@id='fee-load_fee_percentage']"));
-		LoadPercentageUpdate.sendKeys("2");
-		
-		WebElement UpdateButton = driver.findElement(By.xpath("//button[contains(text(),'Update']"));
-		UpdateButton.click();
-		*/
-		//Validations
-		
-	}else{
-		 throw new SkipException("Skipping LoadFeesTest case. ");
-	}
-		
-	
-	
-	
-}
-	 
 
+	 
+public void log_in_system_user(WebDriver driver, String username, String password) {
+	wait = new WebDriverWait(driver, 20);
+	   
+	   driver.manage().window().maximize();
+	   driver.get("https://dev.system.an-other.co.uk/");
+	   WebElement Username = driver.findElement(By.xpath("//*[@id=\"loginform-login\"]"));
+	   Username.sendKeys(username);
+	   WebElement Password = driver.findElement(By.xpath("//*[@id=\"loginform-password\"]"));
+	   Password.sendKeys(password);
+	   WebElement SysIn = driver.findElement(By.xpath("//button[contains(text(),'Sign in')]"));
+	   SysIn.click();
+	   WebElement dashboard = new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"p0\"]")));
+}
 
 }

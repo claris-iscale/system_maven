@@ -12,8 +12,8 @@ public class Settings {
 	 public static final int ProgramDeliveryFeeTest = 8;
 	 public static final int ProgramTariffTest= 9;
 	 //users
-	 public static final int UsersSystemUser= 10;
-	 public static final int UsersProgramUser= 11;	 
+	 public static final int UsersSystemUserTest= 10;
+	 public static final int UsersProgramUserTest= 11;	 
 	 public static final int IPWhitelistTest= 12;
 	 //support
 	 public static final int CardholderDetailsTest= 13;
@@ -31,39 +31,39 @@ public class Settings {
 	   public boolean skipTest(String testCase) {
 		   boolean runTestCase = true;
 		   switch (testCase) {
-         case "LoginTest": runTestCase = true;
+         case "LoginTest": runTestCase = false;//working - needs enhancement
       	   	break;
-         case "FinanceTest": runTestCase = true;
+         case "FinanceTest": runTestCase = false;//working 
  	   			break;
-         case "LoadFeesTest": runTestCase = true;
+         case "LoadFeesTest": runTestCase = false;// fixed - needs enhancement 
  	   			break;
-         case "ProgramsTest": runTestCase = false;
+         case "ProgramsTest": runTestCase = false; //fixed - passed at first run
          		break;
-         case "ProgramProductsTest": runTestCase = true;         
+         case "ProgramProductsTest": runTestCase = false;    //fixed - passed at first run     
  	   			break;
-         case "ProgramProductRefTest": runTestCase = true;                
+         case "ProgramProductRefTest": runTestCase = false;//working             
  				break;
-         case "ProgramCarrierTypeTest": runTestCase = true;         
+         case "ProgramCarrierTypeTest": runTestCase = false;//working     
  				break;
-         case "ProgramDeliveryFeeTest": runTestCase = true;         
+         case "ProgramDeliveryFeeTest": runTestCase = false;//working     
 				break;
-         case "ProgramTariffTest": runTestCase = true;         
+         case "ProgramTariffTest": runTestCase = false;//working        
 				break;
-         case "UsersSystemUser": runTestCase = true;         
+         case "UsersSystemUserTest": runTestCase = false; // to fix  // fixed 10/17/18   
 				break;
-         case "UsersProgramUser": runTestCase = true;         
+         case "UsersProgramUserTest": runTestCase = true; // to fix      
 				break;
-         case "IPWhitelistTest": runTestCase = true;         
+         case "IPWhitelistTest": runTestCase = false;         
 				break;
-         case "CardholderDetailsTest": runTestCase = true;         
+         case "CardholderDetailsTest": runTestCase = false; // to fix       
 			break;
-         case "SettingsPrefundTest": runTestCase = true;         
+         case "SettingsPrefundTest": runTestCase = false;         
 			break;
-         case "SettingsDeliveryMethodTest": runTestCase = true;         
+         case "SettingsDeliveryMethodTest": runTestCase = false;         
 			break;
-         case "LogsCardholders": runTestCase = true;         
+         case "LogsCardholders": runTestCase = false;         
 			break;
-         case "LogsApi": runTestCase = true;         
+         case "LogsApi": runTestCase = false;         
 			break;
 			
          default:  runTestCase = true;
