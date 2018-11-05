@@ -79,13 +79,12 @@ public void FinanceTest() {
 		String clearingReference = "7-9-3038481";
 		System.out.println("Now on Finance Test");
 		   log_in_system_user(driver, username, password);
-		//BALANCES	
+		   	//BALANCES	
 			WebElement Finance = driver.findElement(By.cssSelector("a[class='dropdown-toggle']"));
 			Finance.click();
 			
 			WebElement Balances = driver.findElement(By.xpath("//a[contains(text(),'Ledger Balances')]"));
 			Balances.click();
-			// Check Pagination//
 			
 			//Export//
 			Actions  action = new Actions(driver);
@@ -299,7 +298,7 @@ public void LoadFeesTest() {
 		String minAmount = "1";
 		String maxAmount = "10";
 		String loadFee = "2";
-		String loadPercent = "2";
+		String loadPercent = "2";	
 		System.out.println("Now on LoadFeesTest");
 		
 		WebElement ProgramLoadFees = driver.findElement(By.xpath("//*[@id=\"w4\"]/li[3]/a"));
@@ -1425,9 +1424,9 @@ public void IPWhitelistTest() {
 			 ParseWhitelist.sendKeys(IPWhitelistIP);
 			 ParseWhitelistDesc.sendKeys(WhitelistDesc);
 			 ParseCreate.click();
-			 driver.quit();
+			 
 	 		}		
-		
+		driver.quit();
 	}else{
 		 throw new SkipException("Skipping IPWhitelistTest case. ");
 	}			

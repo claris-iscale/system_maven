@@ -1,73 +1,598 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="16" passed="16">
+<testng-results skipped="15" failed="0" ignored="0" total="16" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="447122" started-at="2018-10-17T07:42:52Z" finished-at="2018-10-17T07:50:20Z">
+  <suite name="Default suite" duration-ms="39663" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:06:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="447122" started-at="2018-10-17T07:42:52Z" finished-at="2018-10-17T07:50:20Z">
+    <test name="Default test" duration-ms="39663" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:06:09Z">
       <class name="SystemMavenProject.AnotherSystem">
-        <test-method status="PASS" signature="LoginTest()[pri:1, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="LoginTest" duration-ms="13440" started-at="2018-10-17T07:42:52Z" finished-at="2018-10-17T07:43:06Z">
+        <test-method status="SKIP" signature="LoginTest()[pri:1, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="LoginTest" duration-ms="9" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping LoginTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping LoginTest case. 
+at SystemMavenProject.AnotherSystem.LoginTest(AnotherSystem.java:70)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginTest -->
-        <test-method status="PASS" signature="FinanceTest()[pri:2, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="FinanceTest" duration-ms="45140" started-at="2018-10-17T07:43:06Z" finished-at="2018-10-17T07:43:51Z">
+        <test-method status="SKIP" signature="FinanceTest()[pri:2, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="FinanceTest" duration-ms="2" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping FinanceTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping FinanceTest case. 
+at SystemMavenProject.AnotherSystem.FinanceTest(AnotherSystem.java:289)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FinanceTest -->
-        <test-method status="PASS" signature="LoadFeesTest()[pri:3, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="LoadFeesTest" duration-ms="19079" started-at="2018-10-17T07:43:51Z" finished-at="2018-10-17T07:44:10Z">
+        <test-method status="SKIP" signature="LoadFeesTest()[pri:3, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="LoadFeesTest" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping LoadFeesTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping LoadFeesTest case. 
+at SystemMavenProject.AnotherSystem.LoadFeesTest(AnotherSystem.java:371)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoadFeesTest -->
-        <test-method status="PASS" signature="ProgramsTest()[pri:4, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="ProgramsTest" duration-ms="22900" started-at="2018-10-17T07:44:10Z" finished-at="2018-10-17T07:44:33Z">
+        <test-method status="SKIP" signature="ProgramsTest()[pri:4, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="ProgramsTest" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping ProgramsTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping ProgramsTest case. 
+at SystemMavenProject.AnotherSystem.ProgramsTest(AnotherSystem.java:481)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProgramsTest -->
-        <test-method status="PASS" signature="ProgramProductsTest()[pri:5, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="ProgramProductsTest" duration-ms="25738" started-at="2018-10-17T07:44:33Z" finished-at="2018-10-17T07:44:59Z">
+        <test-method status="SKIP" signature="ProgramProductsTest()[pri:5, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="ProgramProductsTest" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping ProgramProductsTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping ProgramProductsTest case. 
+at SystemMavenProject.AnotherSystem.ProgramProductsTest(AnotherSystem.java:594)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProgramProductsTest -->
-        <test-method status="PASS" signature="ProgramProductRefTest()[pri:6, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="ProgramProductRefTest" duration-ms="29724" started-at="2018-10-17T07:44:59Z" finished-at="2018-10-17T07:45:28Z">
+        <test-method status="SKIP" signature="ProgramProductRefTest()[pri:6, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="ProgramProductRefTest" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping ProgramProductRefTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping ProgramProductRefTest case. 
+at SystemMavenProject.AnotherSystem.ProgramProductRefTest(AnotherSystem.java:713)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProgramProductRefTest -->
-        <test-method status="PASS" signature="MnuProgramCarrierType()[pri:7, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="MnuProgramCarrierType" duration-ms="29770" started-at="2018-10-17T07:45:28Z" finished-at="2018-10-17T07:45:58Z">
+        <test-method status="SKIP" signature="MnuProgramCarrierType()[pri:7, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="MnuProgramCarrierType" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping ProgramCarrierTypeTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping ProgramCarrierTypeTest case. 
+at SystemMavenProject.AnotherSystem.MnuProgramCarrierType(AnotherSystem.java:828)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MnuProgramCarrierType -->
-        <test-method status="PASS" signature="MnuProgramDeliveryFee()[pri:8, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="MnuProgramDeliveryFee" duration-ms="27565" started-at="2018-10-17T07:45:58Z" finished-at="2018-10-17T07:46:26Z">
+        <test-method status="SKIP" signature="MnuProgramDeliveryFee()[pri:8, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="MnuProgramDeliveryFee" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping ProgramDeliveryFeeTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping ProgramDeliveryFeeTest case. 
+at SystemMavenProject.AnotherSystem.MnuProgramDeliveryFee(AnotherSystem.java:961)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MnuProgramDeliveryFee -->
-        <test-method status="PASS" signature="MnuProgramTariff()[pri:9, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="MnuProgramTariff" duration-ms="27449" started-at="2018-10-17T07:46:26Z" finished-at="2018-10-17T07:46:53Z">
+        <test-method status="SKIP" signature="MnuProgramTariff()[pri:9, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="MnuProgramTariff" duration-ms="2" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping ProgramTariffTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping ProgramTariffTest case. 
+at SystemMavenProject.AnotherSystem.MnuProgramTariff(AnotherSystem.java:1082)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MnuProgramTariff -->
-        <test-method status="PASS" signature="UsersSystemUserTest()[pri:10, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="UsersSystemUserTest" duration-ms="56506" started-at="2018-10-17T07:46:53Z" finished-at="2018-10-17T07:47:50Z">
+        <test-method status="SKIP" signature="UsersSystemUserTest()[pri:10, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="UsersSystemUserTest" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping UsersSystemUser case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping UsersSystemUser case. 
+at SystemMavenProject.AnotherSystem.UsersSystemUserTest(AnotherSystem.java:1194)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UsersSystemUserTest -->
-        <test-method status="PASS" signature="UsersProgramUserTest()[pri:11, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="UsersProgramUserTest" duration-ms="38092" started-at="2018-10-17T07:47:50Z" finished-at="2018-10-17T07:48:28Z">
+        <test-method status="SKIP" signature="UsersProgramUserTest()[pri:11, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="UsersProgramUserTest" duration-ms="1" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:05:30Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping UsersSystemUser case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping UsersSystemUser case. 
+at SystemMavenProject.AnotherSystem.UsersProgramUserTest(AnotherSystem.java:1310)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UsersProgramUserTest -->
-        <test-method status="PASS" signature="IPWhitelistTest()[pri:12, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="IPWhitelistTest" duration-ms="21539" started-at="2018-10-17T07:48:28Z" finished-at="2018-10-17T07:48:49Z">
+        <test-method status="PASS" signature="IPWhitelistTest()[pri:12, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="IPWhitelistTest" duration-ms="39590" started-at="2018-10-29T02:05:30Z" finished-at="2018-10-29T02:06:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- IPWhitelistTest -->
-        <test-method status="PASS" signature="CardholderDetailsTest()[pri:13, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="CardholderDetailsTest" duration-ms="24918" started-at="2018-10-17T07:48:49Z" finished-at="2018-10-17T07:49:14Z">
+        <test-method status="SKIP" signature="CardholderDetailsTest()[pri:13, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="CardholderDetailsTest" duration-ms="0" started-at="2018-10-29T02:06:09Z" finished-at="2018-10-29T02:06:09Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping CardholderDetailsTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping CardholderDetailsTest case. 
+at SystemMavenProject.AnotherSystem.CardholderDetailsTest(AnotherSystem.java:1494)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CardholderDetailsTest -->
-        <test-method status="PASS" signature="SettingsPrefundTest()[pri:14, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="SettingsPrefundTest" duration-ms="20476" started-at="2018-10-17T07:49:14Z" finished-at="2018-10-17T07:49:35Z">
+        <test-method status="SKIP" signature="SettingsPrefundTest()[pri:14, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="SettingsPrefundTest" duration-ms="0" started-at="2018-10-29T02:06:09Z" finished-at="2018-10-29T02:06:09Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping SettingsPrefundTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping SettingsPrefundTest case. 
+at SystemMavenProject.AnotherSystem.SettingsPrefundTest(AnotherSystem.java:1538)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SettingsPrefundTest -->
-        <test-method status="PASS" signature="SettingsDeliveryMethodTest()[pri:15, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="SettingsDeliveryMethodTest" duration-ms="27504" started-at="2018-10-17T07:49:35Z" finished-at="2018-10-17T07:50:02Z">
+        <test-method status="SKIP" signature="SettingsDeliveryMethodTest()[pri:15, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="SettingsDeliveryMethodTest" duration-ms="1" started-at="2018-10-29T02:06:09Z" finished-at="2018-10-29T02:06:09Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping SettingsDeliveryMethodTest case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping SettingsDeliveryMethodTest case. 
+at SystemMavenProject.AnotherSystem.SettingsDeliveryMethodTest(AnotherSystem.java:1662)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SettingsDeliveryMethodTest -->
-        <test-method status="PASS" signature="LogsCardholders()[pri:16, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="LogsCardholders" duration-ms="17232" started-at="2018-10-17T07:50:02Z" finished-at="2018-10-17T07:50:20Z">
+        <test-method status="SKIP" signature="LogsCardholders()[pri:16, instance:SystemMavenProject.AnotherSystem@6b81ce95]" name="LogsCardholders" duration-ms="1" started-at="2018-10-29T02:06:09Z" finished-at="2018-10-29T02:06:09Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping LogsCardholders case. ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping LogsCardholders case. 
+at SystemMavenProject.AnotherSystem.LogsCardholders(AnotherSystem.java:1711)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogsCardholders -->

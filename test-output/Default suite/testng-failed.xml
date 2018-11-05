@@ -5,6 +5,20 @@
     <classes>
       <class name="SystemMavenProject.AnotherSystem">
         <methods>
+          <include name="ProgramProductRefTest"/>
+          <include name="MnuProgramDeliveryFee"/>
+          <include name="CardholderDetailsTest"/>
+          <include name="LoginTest"/>
+          <include name="UsersSystemUserTest"/>
+          <include name="LogsCardholders"/>
+          <include name="MnuProgramTariff"/>
+          <include name="LoadFeesTest"/>
+          <include name="SettingsPrefundTest"/>
+          <include name="UsersProgramUserTest"/>
+          <include name="MnuProgramCarrierType"/>
+          <include name="ProgramsTest"/>
+          <include name="FinanceTest"/>
+          <include name="ProgramProductsTest"/>
           <include name="SettingsDeliveryMethodTest"/>
         </methods>
       </class> <!-- SystemMavenProject.AnotherSystem -->
